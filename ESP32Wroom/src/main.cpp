@@ -1,7 +1,7 @@
 #include <Arduino.h>
 
 #include "esp_init.h"
-#include "esp_sys_file.h"
+#include "esp_net_timer.h"
 
 static ESP_INIT esp_pro("wifi");
 
@@ -10,14 +10,14 @@ void setup() {
 
     /// 设置esp硬件
     int ret = 0;
-    esp_pro.set_hardware_setup(esp_spiffs_setup);
+    esp_pro.set_hardware_setup(esp_net_timer_setup);
     ret = esp_pro.run_hardware_setup();
     if (ret < 0) {
         //TODO：输出错误
         Serial.printf("%s->%d esp run_hardware_setup failed.",__func__, __LINE__);
     }
     /// 设置esp工程任务
-    esp_pro.set_task(esp_spiffs_task);
+    esp_pro.set_task(esp_net_timer_task);
     
 }
 
