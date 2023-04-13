@@ -67,8 +67,8 @@ int esp_udp_task(void)
 #endif
 
 // 广播方式的异步UDP
-const char *ssid = "ACE";
-const char *password = "12345678";
+static const char *ssid = "ACE";
+static const char *password = "12345678";
 
 static AsyncUDP esp_udp;
 static unsigned int udp_port = 5025;
